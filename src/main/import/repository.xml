@@ -5,7 +5,29 @@
                     j:modulePriority="0"
                     j:moduleType="module"
                     j:title="widgets-demo"
+                    jcr:mixinTypes="jmix:hasExternalProviderExtension"
                     jcr:primaryType="jnt:module">
+         <sources jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                  jcr:primaryType="jnt:moduleVersionFolder"
+                  j:staticMountPointProviderKey="module-widgets-demo-2.0-SNAPSHOT">
+            <src jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                 jcr:primaryType="jnt:folder">
+               <main jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                     jcr:primaryType="jnt:folder">
+                  <resources jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                             jcr:primaryType="jnt:folder">
+                     <jnt_jsonWidget jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                                     jcr:primaryType="jnt:nodeTypeFolder">
+                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                              jcr:primaryType="jnt:templateTypeFolder">
+                           <jsonWidget.edit.jsp jcr:primaryType="jnt:viewFile"/>
+                           <jsonWidget.jsp jcr:primaryType="jnt:viewFile"/>
+                        </html>
+                     </jnt_jsonWidget>
+                  </resources>
+               </main>
+            </src>
+         </sources>
          <portlets jcr:primaryType="jnt:portletFolder"/>
          <files jcr:primaryType="jnt:folder"/>
          <contents jcr:primaryType="jnt:contentFolder"/>

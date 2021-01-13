@@ -7,11 +7,8 @@
 
 [jnt:currentUserBookmarksWidget] > jnt:currentUserBookmarks, jmix:widget
 
-
 [jnt:scriptWidget] > jnt:content, mix:title, jmix:widget
  - j:script (string, richtext) = '' autocreated indexed=no
-
-[jnt:stockWidget] > jdnt:stockWidget, jmix:widget
 
 [jnt:richTextWidget] > jnt:bigText, mix:title, jmix:widget
 
@@ -29,3 +26,6 @@ extends = jnt:youtubeFeed
   - aspectRatio (string, choicelist[resourceBundle]) = '16by9' autocreated < '16by9', '4by3'
 
 [jnt:youtubeFeedWidget] > jnt:youtubeFeed, jmix:widget
+
+[jnt:jsonWidget] > jnt:content, mix:title, jmix:widget
+ - j:jsonUrl (string)
