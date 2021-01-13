@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
    <modules jcr:primaryType="jnt:modules">
-      <widgets-demo j:dependencies="bookmarks default rss widgets-area-core"
+      <widgets-demo j:dependencies="bookmarks default rss weatherforecast widgets-area-core"
                     j:modulePriority="0"
                     j:moduleType="module"
                     j:title="widgets-demo"
@@ -16,6 +16,13 @@
                      jcr:primaryType="jnt:folder">
                   <resources jcr:mixinTypes="jmix:hasExternalProviderExtension"
                              jcr:primaryType="jnt:folder">
+                     <jnt_weatherWidget jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                                        jcr:primaryType="jnt:nodeTypeFolder">
+                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                              jcr:primaryType="jnt:templateTypeFolder">
+                           <weatherWidget.edit.jsp jcr:primaryType="jnt:viewFile"/>
+                        </html>
+                     </jnt_weatherWidget>
                      <jnt_jsonWidget jcr:mixinTypes="jmix:hasExternalProviderExtension"
                                      jcr:primaryType="jnt:nodeTypeFolder">
                         <html jcr:mixinTypes="jmix:hasExternalProviderExtension"
@@ -24,6 +31,10 @@
                            <jsonWidget.jsp jcr:primaryType="jnt:viewFile"/>
                         </html>
                      </jnt_jsonWidget>
+                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                               jcr:primaryType="jnt:metaInfFolder">
+                        <definitions.cnd jcr:primaryType="jnt:definitionFile"/>
+                     </META-INF>
                   </resources>
                </main>
             </src>
