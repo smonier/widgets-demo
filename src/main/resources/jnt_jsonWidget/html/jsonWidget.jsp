@@ -31,45 +31,49 @@
 <c:set var="jsonURL" value="${currentNode.properties['j:jsonUrl'].string}"/>
 <c:set var="nodeUUID" value="${currentNode.UUID}"/>
 
-
-<table class="table table-bordered table-striped" id="jsontable-${nodeUUID}">
-
-</table>
-
+<div class="container"  style="width:100%">
+    <table class="table table-bordered table-striped w-100" id="jsontable-${nodeUUID}">
+    </table>
+</div>
 
 <script>
-    $(document).ready(function () {
 
-        //callback function that configures and initializes DataTables
-        function renderTable(xhrdata) {
-            var cols = [];
 
-            var exampleRecord = JSON.parse(xhrdata);
-            var keys = Object.keys(exampleRecord.items[0]);
-
-            keys.forEach(function (k) {
-                cols.push({
-                    title: k,
-                    data: k
-                    //optionally do some type detection here for render function
-                });
+    //callback function that configures and initializes DataTables
+    function renderTable(xhrdata) {
+        var cols = [];
+        var table;
+        var exampleRecord = JSON.parse(xhrdata);
+        var keys = Object.keys(exampleRecord.items[0]);
+        keys.forEach(function (k) {
+            cols.push({
+                title: k,
+                data: k
+                //optionally do some type detection here for render function
             });
+        });
+        if ($.fn.dataTable.isDataTable('#jsontable-${nodeUUID}')) {
 
-            var table = $('#jsontable-${nodeUUID}').DataTable({
+            table = $('#jsontable-${nodeUUID}').DataTable();
+
+        } else {
+            table = $('#jsontable-${nodeUUID}').DataTable({
                 columns: cols,
                 paging: false,
-                searching: false,
-                scrollY: 300
+                searching: false
             });
-
-            table.rows.add(exampleRecord.items).draw();
         }
 
+        table.rows.add(exampleRecord.items).draw();
+    }
+    window.onload = (event) => {
+        console.log('page is fully loaded');
         //xhr call to retrieve data
         var xhrcall = $.ajax('${jsonURL}');
-
+        console.log("**********************************");
         //promise syntax to render after xhr completes
         xhrcall.done(renderTable);
-    });
+    };
+
 
 </script>
