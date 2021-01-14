@@ -31,9 +31,9 @@
 <template:addResources type="javascript" resources="jsonwidget.js"/>
 
 <c:set var="jsonURL" value="${currentNode.properties['j:jsonUrl'].string}"/>
-<c:set var="nodeUUID" value="${currentNode.UUID}"/>
+<c:set var="nodeUUID" value="${currentNode.UUID}-modal"/>
 
-<div class="container">
+<div class="container" style="width:100%">
     <div class="row">
         <table class="table table-bordered table-striped w-100" id="jsontable-${nodeUUID}">
         </table>
@@ -42,7 +42,7 @@
 
 <script>
     var el = document.getElementById('jsontable-${nodeUUID}');
-    window.addEventListener('load', function () {
+    window.addEventListener('load', function() {
         var target = $("#jsontable-${nodeUUID}");
         //xhr call to retrieve data
         $.get("${jsonURL}").done(function (data) {

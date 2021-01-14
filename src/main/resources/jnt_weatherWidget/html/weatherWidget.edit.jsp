@@ -31,8 +31,12 @@
         <div class="form-group">
             <label for="units" class="col-lg-2 control-label">units</label>
             <div class="col-lg-10">
-                <input type="text" name="url" class="form-control" id="units"
-                       value="${currentNode.properties.units.string}">
+                <select class="form-control" name="units" id="units">
+                    <option value="si" ${currentNode.properties.units.string == 'si' ? 'selected' : ''}><fmt:message
+                            key="jnt_weatherForecast.units.si"/></option>
+                    <option value="us" ${currentNode.properties.units.string == 'us' ? 'selected' : ''}><fmt:message
+                            key="jnt_weatherForecast.units.us"/></option>
+                </select>
             </div>
         </div>
         <input type="hidden" name="jcrRedirectTo"

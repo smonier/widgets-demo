@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <label for="jsonUrl" class="col-lg-2 control-label"><fmt:message key="jnt_jsonUrl.jsonUrl"/></label>
                     <div class="col-lg-10">
-                        <input type="text" name="jsonUrl" class="form-control" id="jsonUrl" value="${currentNode.properties['jsonUrl'].string}">
+                        <input type="text" name="jsonUrl" class="form-control" id="jsonUrl" value="${currentNode.properties['j:jsonUrl'].string}">
                     </div>
 
                 </div>
