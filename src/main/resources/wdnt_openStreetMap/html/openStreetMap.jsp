@@ -29,10 +29,10 @@
         <c:set var="location" value="${props['j:latitude']},${props['j:longitude']}"/>
     </c:when>
     <c:otherwise>
-        <c:set var="location" value="${props['street']}"/>
-        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['zipCode']}"/>
-        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['town']}"/>
-        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['country']}"/>
+        <c:set var="location" value="${props['j:street']}"/>
+        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['j:zipCode']}"/>
+        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['j:town']}"/>
+        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['j:country']}"/>
     </c:otherwise>
 </c:choose>
 

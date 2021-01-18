@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
    <modules jcr:primaryType="jnt:modules">
-      <widgets-demo j:dependencies="bookmarks default rss weatherforecast widgets-area-core"
+      <widgets-demo j:dependencies="bookmarks default rss localWeatherForecast widgets-area-core"
                     j:modulePriority="0"
                     j:moduleType="module"
                     j:title="widgets-demo"

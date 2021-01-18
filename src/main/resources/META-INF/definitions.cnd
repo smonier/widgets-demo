@@ -7,7 +7,7 @@
 
 [jnt:rssWidget] > jnt:rss, jmix:widget
 
-[jnt:weatherWidget] > jnt:weatherForecast, jmix:widget
+[jnt:WeatherWidget] > jnt:localWeatherForecast, jmix:widget
 
 [jnt:currentUserBookmarksWidget] > jnt:currentUserBookmarks, jmix:widget
 

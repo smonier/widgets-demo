@@ -58,17 +58,31 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="latitude" class="col-lg-2 control-label">latitude</label>
+            <label for="j:street" class="col-lg-2 control-label">Street</label>
             <div class="col-lg-10">
-                <input type="text" name="latitude" class="form-control" id="latitude"
-                       value="${currentNode.properties['latitude'].string}">
+                <input type="text" name="j:street" class="form-control" id="j:street"
+                       value="${currentNode.properties['j:street'].string}">
             </div>
         </div>
         <div class="form-group">
-            <label for="longitude" class="col-lg-2 control-label">longitude</label>
+            <label for="j:town" class="col-lg-2 control-label">Town</label>
             <div class="col-lg-10">
-                <input type="text" name="longitude" class="form-control" id="longitude"
-                       value="${currentNode.properties['longitude'].string}">
+                <input type="text" name="j:town" class="form-control" id="j:town"
+                       value="${currentNode.properties['j:town'].string}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="j:zipCode" class="col-lg-2 control-label">Zip Code</label>
+            <div class="col-lg-10">
+                <input type="text" name="j:zipCode" class="form-control" id="j:zipCode"
+                       value="${currentNode.properties['j:zipCode'].string}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="j:country" class="col-lg-2 control-label">Country</label>
+            <div class="col-lg-10">
+                <input type="text" name="j:country" class="form-control" id="j:country"
+                       value="${currentNode.properties['j:country'].string}">
             </div>
         </div>
         <input type="hidden" name="jcrRedirectTo"

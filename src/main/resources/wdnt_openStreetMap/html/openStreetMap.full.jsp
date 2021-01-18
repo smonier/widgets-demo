@@ -12,7 +12,7 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-<c:set var="displayName" value="${currentNode.properties['jcr:title'].string}"/>
+<c:set var="displayName" value="${currentNode.properties['displayName'].string}"/>
 <c:set var="uuid" value="${currentNode.UUID}"/>
 <c:set var="props" value="${currentNode.propertiesAsString}"/>
 
@@ -30,14 +30,14 @@
 </c:if>
 <c:set var="language" value="${currentResource.locale.language}"/>
 <c:choose>
-    <c:when test="${not empty props['latitude'] && not empty props['longitude']}">
-        <c:set var="location" value="${props['latitude']},${props['longitude']}"/>
+    <c:when test="${not empty props['j:latitude'] && not empty props['j:longitude']}">
+        <c:set var="location" value="${props['j:latitude']},${props['j:longitude']}"/>
     </c:when>
     <c:otherwise>
-        <c:set var="location" value="${props['street']}"/>
-        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['zipCode']}"/>
-        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['town']}"/>
-        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['country']}"/>
+        <c:set var="location" value="${props['j:street']}"/>
+        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['j:zipCode']}"/>
+        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['j:town']}"/>
+        <c:set var="location" value="${location}${not empty location ? ',' : ''}${props['j:country']}"/>
     </c:otherwise>
 </c:choose>
 

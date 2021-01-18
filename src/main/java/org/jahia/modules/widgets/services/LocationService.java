@@ -70,17 +70,17 @@ public class LocationService {
         String json;
 
         StringBuilder address = new StringBuilder();
-        if (nodeWrapper.hasProperty("street")) {
-            address.append(nodeWrapper.getProperty("street").getString());
+        if (nodeWrapper.hasProperty("j:street")) {
+            address.append(nodeWrapper.getProperty("j:street").getString());
         }
-        if (nodeWrapper.hasProperty("zipCode")) {
-            address.append(", ").append(nodeWrapper.getProperty("zipCode").getString());
+        if (nodeWrapper.hasProperty("j:zipCode")) {
+            address.append(", ").append(nodeWrapper.getProperty("j:zipCode").getString());
         }
-        if (nodeWrapper.hasProperty("town")) {
-            address.append(", ").append(nodeWrapper.getProperty("town").getString());
+        if (nodeWrapper.hasProperty("j:town")) {
+            address.append(", ").append(nodeWrapper.getProperty("j:town").getString());
         }
-        if (nodeWrapper.hasProperty("country")) {
-            address.append(", ").append(nodeWrapper.getProperty("country").getValue());
+        if (nodeWrapper.hasProperty("j:country")) {
+            address.append(", ").append(nodeWrapper.getProperty("j:country").getValue());
         }
 
         if (address.length() > 0) {

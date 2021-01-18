@@ -64,7 +64,7 @@
   </scm>
   <properties>
     <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
-    <jahia-depends>default,bookmarks,rss,weatherforecast,widgets-area-core</jahia-depends>
+    <jahia-depends>default,bookmarks,rss,localWeatherForecast,widgets-area-core</jahia-depends>
   </properties>
   <repositories>
     <repository>
