@@ -1,8 +1,11 @@
-package org.jahia.modules.dxdemowidgets.rules
+package org.jahia.modules.widgets-demo.rules
 
 // list any import classes here.
+import org.jahia.modules.widgets.*
+import org.jahia.modules.widgets.services.*
 import org.jahia.services.content.rules.*
-import org.jahia.services.content.JCRContentUtils
+import org.jahia.services.content.*
+import javax.jcr.observation.Event
 import org.slf4j.Logger
 
 expander rules.dsl
@@ -10,5 +13,17 @@ expander rules.dsl
 // declare any global variables here
 global User user
 global Service service
+global LocationService locationService
 global Logger logger
-global JCRContentUtils jcrUtils
+global JCRStoreProvider provider
+
+rule "Geocode address"
+    when
+        Not in operation import
+        Location data has been changed on a node
+        Automatic geocoding is enabled on the node
+    then
+       Log "------ CHANGE IN LOCATION ---------"
+       Log "Location data has changed on " + node.getPath() + ". Will try to detect the latitude/longitude automatically"
+       Geocode the node
+end

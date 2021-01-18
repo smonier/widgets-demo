@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-    <bean id="videoSizeInitializer" class="org.jahia.services.content.nodetypes.initializers.FixedListChoiceListInitializer">
+    <bean id="videoSizeInitializer"
+          class="org.jahia.services.content.nodetypes.initializers.FixedListChoiceListInitializer">
         <property name="key" value="videoSizeInitializer"/>
         <property name="items">
             <list>
@@ -27,5 +28,27 @@
                 </bean>
             </list>
         </property>
+    </bean>
+
+    <bean class="org.jahia.modules.widgets.filters.AlphavantageKeyFilter">
+        <property name="priority" value="33"/>
+        <property name="description"
+                  value="Widgets Demo module: Inject Alphavantage key in request to be used by Stock Price Widget"/>
+        <property name="alphavantageKey" value="${jahia.modules.widget.attr.alphavantage.key:FZAOU8JHIN114ZSP}"/>
+        <property name="applyOnNodeTypes" value="wdnt:stockPriceWidget"/>
+    </bean>
+
+    <bean class="org.jahia.modules.widgets.filters.MapBoxTokenFilter">
+        <property name="priority" value="32"/>
+        <property name="description" value="Location module: Inject MApBox token in request to be used by map .jsp"/>
+        <property name="mapBoxToken"
+                  value="${jahia.modules.location.attr.mapbox.token:pk.eyJ1Ijoic21vbmllciIsImEiOiJja2V0cmpybjMzbnVqMnNwYzI1NmFzMzdwIn0.GhuYDCqXfAhv9iBfgpCTXw}"/>
+        <property name="applyOnNodeTypes" value="wdnt:openStreetMap"/>
+    </bean>
+    <bean class="org.jahia.modules.widgets.filters.LocationIQApiKey">
+        <property name="priority" value="31"/>
+        <property name="description" value="Location module: Inject locationIQ key in request to be used by map .jsp"/>
+        <property name="locationIQApiKey" value="${jahia.modules.location.attr.locationiq.key:9051e85d6950fc}"/>
+        <property name="applyOnNodeTypes" value="jnt:weatherForecast"/>
     </bean>
 </beans>

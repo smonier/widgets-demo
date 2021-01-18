@@ -29,9 +29,9 @@
         </div>
 
         <div class="form-group">
-            <label for="jsonUrl" class="col-lg-2 control-label"><fmt:message key="jnt_jsonUrl.jsonUrl"/></label>
+            <label for="stockSymbol" class="col-lg-2 control-label"><fmt:message key="wdnt_stockPriceWidget.stockSymbol"/></label>
             <div class="col-lg-10">
-                <input type="text" name="j:jsonUrl" class="form-control" id="jsonUrl" value="${currentNode.properties.['j:jsonUrl'].string}">
+                <input type="text" name="stockSymbol" class="form-control" id="stockSymbol" value="${currentNode.properties.stockSymbol.string}">
             </div>
         </div>
         <input type="hidden" name="jcrRedirectTo" value="<c:url value='${url.base}${renderContext.mainResource.node.path}'/>"/>
