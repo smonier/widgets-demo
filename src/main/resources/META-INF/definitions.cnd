@@ -7,8 +7,6 @@
 
 [jnt:rssWidget] > jnt:rss, jmix:widget
 
-[jnt:WeatherWidget] > jnt:localWeatherForecast, jmix:widget
-
 [jnt:currentUserBookmarksWidget] > jnt:currentUserBookmarks, jmix:widget
 
 [jnt:scriptWidget] > jnt:content, mix:title, jmix:widget
@@ -31,8 +29,8 @@ extends = jnt:youtubeFeed
 
 [jnt:youtubeFeedWidget] > jnt:youtubeFeed, jmix:widget
 
-[jnt:jsonWidget] > jnt:content, mix:title, jmix:widget
- - j:jsonUrl (string)
+[wdnt:jsonWidget] > jnt:content, mix:title, jmix:widget
+ - jsonUrl (string)
 
 [wdnt:stockPriceWidget] > jnt:content, mix:title, jmix:widget
  - stockSymbol (string)
@@ -41,3 +39,5 @@ extends = jnt:youtubeFeed
  - mapType (string,choicelist[resourceBundle]) = 'streets-v11' indexed=no <  'streets-v11','light-v10','dark-v10','outdoors-v11','satellite-v9'
  - zoom (string,choicelist) = '18' indexed=no < '0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21'
  - height (long) = 300 indexed=no < '[1,640]'
+
+[wdnt:localWeatherWidget] > jnt:localWeatherForecast, jmix:widget

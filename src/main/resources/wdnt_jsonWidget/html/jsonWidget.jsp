@@ -30,7 +30,7 @@
 <template:addResources type="javascript" resources="widgetsadmin.js"/>
 <template:addResources type="javascript" resources="jsonwidget.js"/>
 
-<c:set var="jsonURL" value="${currentNode.properties['j:jsonUrl'].string}"/>
+<c:set var="jsonURL" value="${currentNode.properties['jsonUrl']}"/>
 <c:set var="nodeUUID" value="${currentNode.UUID}"/>
 
 <div class="container">

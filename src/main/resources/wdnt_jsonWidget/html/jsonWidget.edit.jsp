@@ -28,12 +28,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="jsonUrl" class="col-lg-2 control-label"><fmt:message key="jnt_jsonUrl.jsonUrl"/></label>
-            <div class="col-lg-10">
-                <input type="text" name="j:jsonUrl" class="form-control" id="jsonUrl" value="${currentNode.properties.['j:jsonUrl'].string}">
-            </div>
-        </div>
         <input type="hidden" name="jcrRedirectTo" value="<c:url value='${url.base}${renderContext.mainResource.node.path}'/>"/>
             <%-- Define the output format for the newly created node by default html or by redirectTo--%>
         <input type="hidden" name="jcrNewNodeOutputFormat" value="html"/>
