@@ -9,7 +9,6 @@
                 return undefined
             };
 
-
             return "            <img src='"
                 + container.escapeExpression(((helper = (helper = helpers.profilePictureUrl || (depth0 != null ? depth0.profilePictureUrl : depth0)) != null ? helper : helpers.helperMissing), (typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {}, {
                     "name": "profilePictureUrl",

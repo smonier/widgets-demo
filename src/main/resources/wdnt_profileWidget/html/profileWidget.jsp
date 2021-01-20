@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
+<template:addResources type="javascript" resources="moment.js"/>
 
 <template:addResources type="javascript" resources="vendor/handlebars.runtime.min.js"/>
 <template:addResources type="javascript" resources="templates/userinfo.precompiled.js"/>
