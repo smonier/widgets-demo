@@ -41,3 +41,5 @@ extends = jnt:youtubeFeed
  - height (long) = 300 indexed=no < '[1,640]'
 
 [wdnt:localWeatherWidget] > jnt:localWeatherForecast, jmix:widget
+
+[wdnt:profileWidget] > jnt:content, mix:title, jmix:widget
