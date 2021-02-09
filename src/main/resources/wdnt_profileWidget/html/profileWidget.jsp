@@ -21,7 +21,6 @@
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
 <c:if test="${renderContext.loggedIn}">
     <jcr:node path="${currentUser.localPath}/profilePrefs" var="userPrefloc"/>
-
         <jcr:jqom var="listUserPrefs">
             <query:selector nodeTypeName="wdnt:profileCategoryPrefs"/>
             <query:descendantNode path="${userPrefloc.path}"/>

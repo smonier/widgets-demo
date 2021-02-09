@@ -27,7 +27,7 @@ import java.util.Map;
  * Date: Feb , 2021
  * Time: 4:06:46 PM
  */
-public class addProfilePreferencesAction  extends Action {
+public class addProfilePreferencesAction extends Action {
 
     private ContentManagerHelper contentManager;
     private static final String profilePrefPath = "profilePrefs";
@@ -39,22 +39,23 @@ public class addProfilePreferencesAction  extends Action {
 
     public ActionResult doExecute(HttpServletRequest req, RenderContext renderContext, Resource resource, JCRSessionWrapper session, Map<String, List<String>> parameters, URLResolver urlResolver) throws Exception {
 
-        logger.info("****YEAH****");
         JCRSessionWrapper jcrSessionWrapper = JCRSessionFactory.getInstance().getCurrentUserSession(resource.getWorkspace(), resource.getLocale());
         JCRNodeWrapper userPortalPreferences = null;
         String userPath = renderContext.getUser().getLocalPath();
         JCRNodeWrapper node = jcrSessionWrapper.getNode(userPath);
         try {
             userPortalPreferences = jcrSessionWrapper.getNode(userPath + "/" + profilePrefPath);
-            logger.info("Profile References Directory already exists");
-            userPortalPreferences.remove();
-            userPortalPreferences = node.addNode(profilePrefPath, "jnt:contentList");
+            logger.info("Profile Preferences Directory already exists");
+            for (JCRNodeWrapper prefNode : userPortalPreferences.getNodes()) {
+                prefNode.remove();
+                prefNode.saveSession();
+            }
             userPortalPreferences.saveSession();
 
         } catch (PathNotFoundException pnf) {
             userPortalPreferences = node.addNode(profilePrefPath, "jnt:contentList");
             userPortalPreferences.saveSession();
-            logger.info("Create Profile References Directory");
+            logger.info("Create Profile Preferences Directory");
 
         }
         String[] profileCatPaths = req.getParameterValues("categoryPref");
@@ -62,21 +63,21 @@ public class addProfilePreferencesAction  extends Action {
             for (String profileCatPath : profileCatPaths) {
                 if (profileCatPath != null) {
                     JCRNodeWrapper myNewPref = null;
-                    logger.info("Prefs Path ..."+userPortalPreferences.getPath());
+                    logger.info("Prefs Path ..." + userPortalPreferences.getPath());
 
                     JCRNodeWrapper profilePrefToCreate = session.getNode(profileCatPath);
                     String prefName = profilePrefToCreate.getName();
-                    logger.info("New Pref Name ... "+prefName);
+                    logger.info("New Pref Name ... " + prefName);
                     try {
                         myNewPref = userPortalPreferences.addNode(prefName, "wdnt:profileCategoryPrefs");
                         logger.info("Newly created Pref Name ..." + myNewPref.getName());
 
                         myNewPref.setProperty("jcr:title", profilePrefToCreate.getName());
                         myNewPref.setProperty("catPath", profilePrefToCreate.getPath());
-                        logger.info("Node PAth ..." + profilePrefToCreate.getPath());
+                        logger.info("Node Path ..." + profilePrefToCreate.getPath());
                         myNewPref.saveSession();
-                    } catch (Exception e){
-                        logger.error(e.getMessage());
+                    } catch (Exception e) {
+                        logger.error("ERROR... " + e.toString());
                     }
                 }
             }
