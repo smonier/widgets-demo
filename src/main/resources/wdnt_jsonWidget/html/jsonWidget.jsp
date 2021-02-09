@@ -19,7 +19,7 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <template:addResources type="css" resources="datatables/css/bootstrap-theme.css"/>
 <template:addResources type="css" resources="typeahead.css"/>
-
+<template:addResources type="css" resources="jquery.dataTables.min.css"/>
 <template:addResources type="javascript" resources="jquery.min.js"/>
 <template:addResources type="javascript" resources="jquery-ui.min.js,jquery.blockUI.js,workInProgress.js"/>
 <template:addResources type="javascript"
@@ -33,12 +33,17 @@
 <c:set var="jsonURL" value="${currentNode.properties['jsonUrl']}"/>
 <c:set var="nodeUUID" value="${currentNode.UUID}"/>
 
-<div class="container">
-    <div class="row">
-        <table class="table table-bordered table-striped w-100" id="jsontable-${nodeUUID}">
-        </table>
+
+<div class="module_header">
+    <div class="module_title">${currentNode.properties['jcr:title'].string}</div>
+    <div class="module_divider">
     </div>
 </div>
+<div class="module_body_noheight">
+    <table class="table table-bordered table-striped w-100" id="jsontable-${nodeUUID}">
+    </table>
+</div>
+
 
 <script>
     var el = document.getElementById('jsontable-${nodeUUID}');

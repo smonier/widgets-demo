@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
    <modules jcr:primaryType="jnt:modules">
-      <widgets-demo j:dependencies="bookmarks default rss localWeatherForecast widgets-area-core"
+      <widgets-demo j:dependencies="bookmarks default localWeatherForecast rss widgets-area-core"
                     j:modulePriority="0"
                     j:moduleType="module"
                     j:title="widgets-demo"
                     jcr:mixinTypes="jmix:hasExternalProviderExtension"
                     jcr:primaryType="jnt:module">
+         <sources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                  jcr:primaryType="jnt:moduleVersionFolder"
+                  j:staticMountPointProviderKey="module-widgets-demo-2.0-SNAPSHOT">
+            <src jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                 jcr:primaryType="jnt:folder">
+               <main jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                     jcr:primaryType="jnt:folder">
+                  <resources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                             jcr:primaryType="jnt:folder">
+                     <css jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                          jcr:primaryType="jnt:cssFolder">
+                        <fileCarousel.css jcr:mixinTypes="jmix:sourceControl jmix:sourceControl"
+                                          jcr:primaryType="jnt:cssFile"
+                                          scmStatus="added"/>
+                     </css>
+                     <jnt_fileList jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl jmix:sourceControl"
+                                   jcr:primaryType="jnt:nodeTypeFolder"
+                                   scmStatus="modified">
+                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl jmix:sourceControl"
+                              jcr:primaryType="jnt:templateTypeFolder"
+                              scmStatus="modified">
+                           <fileList.thumbnail.jsp jcr:mixinTypes="jmix:sourceControl jmix:sourceControl"
+                                                   jcr:primaryType="jnt:viewFile"
+                                                   scmStatus="modified"/>
+                        </html>
+                     </jnt_fileList>
+                  </resources>
+               </main>
+            </src>
+         </sources>
          <portlets jcr:primaryType="jnt:portletFolder"/>
          <files jcr:primaryType="jnt:folder"/>
          <contents jcr:primaryType="jnt:contentFolder"/>

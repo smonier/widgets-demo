@@ -1,17 +1,43 @@
-<div class="col">
-    <div class="card profile-card-1">
-
-        <img src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="profile-sample1" class="background"/>
+<div class="userGreeting">
+    <span id="userGreeting">Good afternoon, {{firstName}}</span>
+</div>
+<div class="userTable">
+    <div class="userPicCol">
         {{#if profilePictureUrl}}
-            <img src='{{profilePictureUrl}}' class='profile user-avatar img-fluid'/>
+            <img src='{{profilePictureUrl}}' id="userPic" class='profile-picture user-avatar img-fluid'/>
         {{else}}
-            <img src='/modules/jexperience/images/default-profile.jpg' class='user-avatar img-fluid'/>
+            <img src='/modules/jexperience/images/default-profile.jpg' id="userPic"
+                 class='profile-picture user-avatar img-fluid'/>
         {{/if}}
-        <div class="card-content">
-            <h2>{{firstName}} {{lastName}}<small>{{jobTitle}}</small></h2>
-            <div class="icon-block">{{email}}</div>
-            <div class="icon-block">Last visit: {{lastVisit}}</div>
-            <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
+        <div style="font-size:14px"><a data-toggle="modal" data-target="#myModal" href="">Personalize</a></div>
+    </div>
+    <div class="userCol">
+        <div class="profileTable">
+            <div class="profileRow">
+                <div class="profileCol">
+                    <span id="firstName">{{firstName}}</span>&nbsp;<span id="lastName">{{lastName}}</span>
+                </div>
+            </div>
+            <div class="profileRow">
+                <div class="profileCol">
+                    <span id="userCompany">{{company}}</span>
+                </div>
+            </div>
+            <div class="profileRow">
+                <div class="profileCol">
+                    <span id="jobTitle">{{jobTitle}}</span>
+                </div>
+            </div>
+            <div class="profileRow">
+                <div class="profileCol">
+                    <a id="userEmail" href="mailto:{{email}}">{{email}}</a>
+                </div>
+            </div>
+            <div class="profileRow">
+                <div class="profileCol">
+                    <span id="userSince">Customer since {{formatDate firstVisit "short"}}</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

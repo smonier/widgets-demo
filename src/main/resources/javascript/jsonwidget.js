@@ -18,8 +18,10 @@ function renderTable(xhrdata, targetTable) {
     } else {
         table = $(targetTable).DataTable({
             columns: cols,
-            paging: false,
-            searching: false
+            paging: true,
+            searching: false,
+            "pageLength": 3,
+            "lengthChange": false
         });
     }
 

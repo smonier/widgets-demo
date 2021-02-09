@@ -43,3 +43,6 @@ extends = jnt:youtubeFeed
 [wdnt:localWeatherWidget] > jnt:localWeatherForecast, jmix:widget
 
 [wdnt:profileWidget] > jnt:content, mix:title, jmix:widget
+
+[wdnt:profileCategoryPrefs] > jnt:content, mix:title, jmix:droppableContent
+- catPath (string)

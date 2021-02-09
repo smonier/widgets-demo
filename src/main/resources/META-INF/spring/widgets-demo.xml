@@ -51,4 +51,9 @@
         <property name="locationIQApiKey" value="${jahia.modules.location.attr.locationiq.key:9051e85d6950fc}"/>
         <property name="applyOnNodeTypes" value="jnt:weatherForecast"/>
     </bean>
+
+    <bean class="org.jahia.modules.widgets.actions.addProfilePreferencesAction">
+        <property name="name" value="addProfilePreferences"/>
+        <property name="requireAuthenticatedUser" value="true"/>
+    </bean>
 </beans>
