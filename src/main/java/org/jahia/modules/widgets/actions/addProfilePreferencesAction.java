@@ -4,8 +4,6 @@ package org.jahia.modules.widgets.actions;
 import org.jahia.ajax.gwt.helper.ContentManagerHelper;
 import org.jahia.bin.Action;
 import org.jahia.bin.ActionResult;
-import org.jahia.exceptions.JahiaException;
-import org.jahia.services.content.JCRContentUtils;
 import org.jahia.services.content.JCRNodeWrapper;
 import org.jahia.services.content.JCRSessionFactory;
 import org.jahia.services.content.JCRSessionWrapper;
