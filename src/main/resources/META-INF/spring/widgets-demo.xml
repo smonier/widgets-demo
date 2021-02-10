@@ -56,4 +56,11 @@
         <property name="name" value="addProfilePreferences"/>
         <property name="requireAuthenticatedUser" value="true"/>
     </bean>
+
+    <bean id="updateProfile" class="org.jahia.modules.widgets.actions.UpdateProfile">
+        <property name="name" value="updateProfile"/>
+        <property name="requireAuthenticatedUser" value="false"/>
+        <property name="contextServerService" ref="contextServerService"/>
+        <property name="jcrTemplate" ref="jcrTemplate"/>
+    </bean>
 </beans>
