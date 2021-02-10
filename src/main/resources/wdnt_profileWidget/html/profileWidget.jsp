@@ -21,10 +21,6 @@
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
 <c:if test="${renderContext.loggedIn}">
     <jcr:node path="${currentUser.localPath}/profilePrefs" var="userPrefloc"/>
-        <jcr:jqom var="listUserPrefs">
-            <query:selector nodeTypeName="wdnt:profileCategoryPrefs"/>
-            <query:descendantNode path="${userPrefloc.path}"/>
-        </jcr:jqom>
 
     <c:forEach items="${listUserPrefs.nodes}" var="prefs" varStatus="status">
         <c:set var="prefList" value="${prefList},${prefs.name}"/>
@@ -32,6 +28,7 @@
 
 
     <script type="text/javascript">
+        let portalPrefs = [];
         $(function () {
             var DateFormats = {
                 short: "MMMM DD - YYYY",
@@ -50,13 +47,18 @@
             });
 
             $(".profile-loaded-subscriber").bind("profileLoaded", (e, data) => {
+                portalPrefs = data.profileProperties.portalInterests;
                 var target = $(".profile-loaded-subscriber > .profile-data");
                 var template = Handlebars.templates.userinfo;
                 target.html(template(data.profileProperties));
+                portalPrefs.forEach(setChecked);
+
+                function setChecked(item, index) {
+                    document.getElementById(item).checked = true;
+                }
             });
         });
     </script>
-
     <div class="module_header">
         <div class="module_title">${currentNode.properties['jcr:title'].string}</div>
         <div class="module_divider">
@@ -107,9 +109,9 @@
                     <div class="modal-body">
                         <c:forEach items="${categories}" var="category">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="${category.node.path}"
-                                       id="flexCheckDefault" name="categoryPref" <c:if test="${fn:contains(prefList, category.node.name)}"> checked</c:if>/>
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="${category.node.name}"
+                                       id="${category.node.name}" name="categoryPref"/>
+                                <label class="form-check-label" for="${category.node.name}">
                                         ${category.node.displayableName}
                                 </label>
                             </div>
@@ -119,9 +121,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
-
                 </form>
-
             </div>
         </div>
     </div>

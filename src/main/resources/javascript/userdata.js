@@ -37,8 +37,39 @@ loadProfile = (completed) => {
         });
 }
 
-$(function () {
-    var interval = setInterval(loadProfile, 500, (data) => {
+/*$(function () {
+    let interval = setInterval(loadProfile, 500, (data) => {
         clearInterval(interval);
     });
-});
+});*/
+
+
+function getProfileProperties() {
+    if (window.cxs === undefined) return;
+
+    var url = window.digitalData.contextServerPublicUrl + '/context.json?sessionId=' + window.cxs.sessionId;
+    var payload = {
+        source: {
+            itemId: window.digitalData.page.pageInfo.pageID,
+            itemType: "page",
+            scope: window.digitalData.scope
+        },
+        requiredProfileProperties: ["*"],
+        requiredSessionProperties: ["*"],
+        requireSegments: true
+    };
+
+    let response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': "application/json",
+            'Content-Type': "text/plain;charset=UTF-8"
+        },
+        body: JSON.stringify(payload)
+    })
+    //await the response of the fetch call
+    //proceed once the first promise is resolved.
+    let data = await response.json()
+    //proceed only when the second promise is resolved
+    return data;
+}

@@ -63,18 +63,21 @@ public class addProfilePreferencesAction extends Action {
             for (String profileCatPath : profileCatPaths) {
                 if (profileCatPath != null) {
                     JCRNodeWrapper myNewPref = null;
-                    logger.info("Prefs Path ..." + userPortalPreferences.getPath());
+                   // logger.info("Prefs Path ..." + userPortalPreferences.getPath());
 
-                    JCRNodeWrapper profilePrefToCreate = session.getNode(profileCatPath);
-                    String prefName = profilePrefToCreate.getName();
+                   // JCRNodeWrapper profilePrefToCreate = session.getNode(profileCatPath);
+                   // String prefName = profilePrefToCreate.getName();
+                    String prefName = profileCatPath;
+
                     logger.info("New Pref Name ... " + prefName);
                     try {
                         myNewPref = userPortalPreferences.addNode(prefName, "wdnt:profileCategoryPrefs");
                         logger.info("Newly created Pref Name ..." + myNewPref.getName());
+                        myNewPref.setProperty("jcr:title", prefName);
 
-                        myNewPref.setProperty("jcr:title", profilePrefToCreate.getName());
-                        myNewPref.setProperty("catPath", profilePrefToCreate.getPath());
-                        logger.info("Node Path ..." + profilePrefToCreate.getPath());
+                      //  myNewPref.setProperty("jcr:title", profilePrefToCreate.getName());
+                     //   myNewPref.setProperty("catPath", profilePrefToCreate.getPath());
+                     //   logger.info("Node Path ..." + profilePrefToCreate.getPath());
                         myNewPref.saveSession();
                     } catch (Exception e) {
                         logger.error("ERROR... " + e.toString());
