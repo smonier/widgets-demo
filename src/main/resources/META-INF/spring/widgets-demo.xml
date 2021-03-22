@@ -55,9 +55,4 @@
         <property name="applyOnNodeTypes" value="jnt:weatherForecast"/>
     </bean>
 
-    <bean class="org.jahia.modules.widgets.actions.addProfilePreferencesAction">
-        <property name="name" value="addProfilePreferences"/>
-        <property name="requireAuthenticatedUser" value="true"/>
-    </bean>
-
 </beans>

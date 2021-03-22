@@ -68,17 +68,6 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>org.jahia.modules</groupId>
-      <artifactId>jexperience</artifactId>
-      <version>1.12.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.unomi</groupId>
-      <artifactId>unomi-api</artifactId>
-      <version>1.5.4</version>
-    </dependency>
-
-    <dependency>
       <groupId>atg.taglib.json</groupId>
       <artifactId>json-taglib</artifactId>
       <version>0.4.1</version>
@@ -100,26 +89,9 @@
       <artifactId>async-http-client</artifactId>
       <version>1.9.7</version>
     </dependency>
-
   </dependencies>
-
   <repositories>
     <repository>
-      <id>marketing-factory-releases</id>
-      <name>jExperience Release</name>
-      <url>https://devtools.jahia.com/nexus/content/repositories/marketing-factory-releases</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>marketing-factory-snapshots</id>
-      <name>jExperience Snapshots</name>
-      <url>https://devtools.jahia.com/nexus/content/repositories/marketing-factory-snapshots</url>
       <releases>
         <enabled>true</enabled>
         <updatePolicy>never</updatePolicy>
@@ -127,18 +99,9 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-    </repository>
-    <repository>
       <id>apache-public</id>
       <name>Apache Public Repository</name>
       <url>https://repository.apache.org/content/groups/public</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
     </repository>
     <repository>
       <releases>
@@ -161,9 +124,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Require-Capability>
-              osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"
-            </Require-Capability>
+            <Require-Capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</Require-Capability>
           </instructions>
         </configuration>
       </plugin>
